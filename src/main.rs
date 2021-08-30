@@ -1,12 +1,4 @@
-extern crate regex;
-
 use std::process::Command;
-use std::collections::HashSet;
-use regex::Regex;
-
-fn print_type_of<T>(_: &T) {
-    println!("{}", std::any::type_name::<T>())
-}
 
 fn main() {
     let command = "df -H -t ext4";
@@ -18,7 +10,6 @@ fn main() {
         .expect("fail");
 
     let out = output.stdout;
-    // println!("{:?}", output);
     let out_str = String::from_utf8_lossy(&out);
     spl = out_str.split("\n").collect();
     spl.remove(0);
@@ -38,8 +29,6 @@ fn main() {
                 }
 
                 ss.push(s);
-
-            } else {
 
             }
 
